@@ -1,0 +1,57 @@
+# Day 1: Secret Entrance
+
+def part1(input_path: str) -> int:
+    file = open(input_path, "r")
+
+    dial_position = 50
+    result = 0
+
+    for line in file:
+        direction = line[0]
+        rotation = line[1:].strip()
+        if direction == "R":
+            dial_position = (dial_position + int(rotation)) % 100
+        else:
+            dial_position = abs((dial_position - int(rotation)) % 100)
+        if dial_position == 0:
+            result += 1
+
+    file.close()
+
+    return result
+
+def part2(input_path: str) -> int:
+    file = open(input_path, "r")
+    
+    dial_position = 50
+    result = 0
+    
+    for line in file:
+        direction = line[0]
+        rotation = line[1:].strip()
+        if direction == "R":
+            result += (dial_position + int(rotation)) // 100
+            dial_position = (dial_position + int(rotation)) % 100
+            
+        else:
+            r = int(rotation)
+            if dial_position-r<=0:
+                # 0 passed at least once
+                result+= 1+ (r-dial_position)//100
+            if dial_position==0:
+                result-=1
+            dial_position = (dial_position - int(rotation)) % 100
+
+    file.close()
+
+    return result
+
+if '__main__'==__name__:
+    print("Part 1 - sample:")
+    print(part1("sample.txt"))
+    print("Part 1 - input:")
+    print(part1("input.txt"))
+    print("Part 2 - sample:")
+    print(part2("sample.txt"))
+    print("Part 2 - input:")
+    print(part2("input.txt"))
