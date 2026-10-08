@@ -1,0 +1,7 @@
+=== AoC 2025 - Performance Report ===
+
+| Day    | Part 1    | Part 2   |
+|--------|-----------|----------|
+| Day 01 | 1.40 ms   | 1.81 ms  |
+| Day 02 | 587.02 ms | 1.42 s   |
+| Day 03 | 3.08 ms   | 13.15 ms |
