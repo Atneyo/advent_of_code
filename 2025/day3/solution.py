@@ -1,3 +1,10 @@
+from pathlib import Path
+
+# find directory where solution.py is
+SCRIPT_DIR = Path(__file__).resolve().parent
+INPUT_PATH = SCRIPT_DIR / "input.txt"
+SAMPLE_PATH = SCRIPT_DIR / "sample.txt"
+
 # Day 3: Lobby
 
 def part1(input_path: str) -> int:
@@ -51,11 +58,7 @@ def part2(input_path: str) -> int:
     return result
 
 if '__main__'==__name__:
-    print("Part 1 - sample:")
-    print(part1("sample.txt"))
-    print("Part 1 - input:")
-    print(part1("input.txt"))
-    print("Part 2 - sample:")
-    print(part2("sample.txt"))
-    print("Part 2 - input:")
-    print(part2("input.txt"))
+    print(f'Part 1 - sample: {part1(SAMPLE_PATH)}')
+    print(f'Part 1 - input: {part1(INPUT_PATH)}')
+    print(f'Part 2 - sample: {part2(SAMPLE_PATH)}')
+    print(f'Part 2 - input: {part2(INPUT_PATH)}')
