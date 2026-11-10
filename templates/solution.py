@@ -9,23 +9,17 @@ SAMPLE_PATH = SCRIPT_DIR / "sample.txt"
 
 def part1(input_path: str) -> int:
 
-    file = open(input_path, "r")
-
-    for line in file:
-        pass
-
-    file.close()
-
+    with open(input_path, "r") as file:
+        for line in file:
+            pass
+    
     return
 
 def part2(input_path: str) -> int:
 
-    file = open(input_path, "r")
-
-    for line in file:
-        pass
-
-    file.close()
+    with open(input_path, "r") as file:
+        for line in file:
+            pass
 
     return
 
