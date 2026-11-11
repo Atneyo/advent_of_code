@@ -27,37 +27,30 @@ def part1(input_path: str) -> int:
 
 def part2(input_path: str) -> int:
     result=0
-
     problems = []
+    
     with open(input_path, "r") as file:
         line_list = list(file)
         for line in line_list[:len(line_list)-1]:
             problems.append(list(line))
         op = line_list[-1].split()
     
-    numbers = []
     op_count = len(op)-1
+    sub_result=neutral_value[op[op_count]]
     for i in range(len(problems[0])-1):
         number = ""
         for j in range(len(problems)):
-            if not problems[j][len(problems[0])-i-2]==' ':
+            if problems[j][len(problems[0])-i-2]!=' ':
                 number+=problems[j][len(problems[0])-i-2]
+        
         if number=="":
-            sub_result = neutral_value[op[op_count]]
-            for n in numbers:
-                sub_result = operators[op[op_count]](sub_result,n)
             result+=sub_result
-            numbers=[]
             op_count-=1
+            sub_result = neutral_value[op[op_count]]
         else:
-            numbers.append(int(number))
-    sub_result = neutral_value[op[op_count]]
-    for n in numbers:
-        sub_result = operators[op[op_count]](sub_result,n)
-    result+=sub_result
-    numbers=[]
-    op_count-=1
-    return result
+            sub_result = operators[op[op_count]](sub_result,int(number))
+
+    return result+sub_result
 
 if '__main__'==__name__:
     print(f'Part 1 - sample: {part1(SAMPLE_PATH)}')
