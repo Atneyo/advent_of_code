@@ -73,7 +73,6 @@ def part1(input_path: str) -> int:
             max2=n
         elif n>max3:
             max3=n
-    print(max1,max2,max3)
     return max1*max2*max3
 
 def distance(v1,v2):

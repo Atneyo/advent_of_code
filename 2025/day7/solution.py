@@ -78,7 +78,6 @@ def part2(input_path: str) -> int:
                         else:
                             node.left=new_beams[-1]
                 beams=new_beams
-    print("finished_tree")
     return count_all_paths_from_tree(root)
 
 @cache
