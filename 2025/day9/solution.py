@@ -28,7 +28,7 @@ def part1(input_path: str) -> int:
         if tile[0]-tile[1]>=top_right_corner[0]-top_right_corner[1]:
             top_right_corner=tile
         if tile[1]-tile[0]>=bottom_left_corner[1]-bottom_left_corner[0]:
-            tile=bottom_left_corner
+            bottom_left_corner=tile
     
     return max(area(top_left_corner,bottom_right_corner), area(bottom_left_corner,top_right_corner))
 
